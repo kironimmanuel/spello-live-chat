@@ -19,6 +19,7 @@ const ChatInput = () => {
   const { currentUser, state } = useGlobalContext();
 
   const sendMessage = async (e) => {
+    if (state.chatId === 'null') return;
     if (!text && !image) return;
     e.preventDefault();
     if (image) {
