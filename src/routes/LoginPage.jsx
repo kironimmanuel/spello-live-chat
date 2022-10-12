@@ -60,7 +60,7 @@ const LoginPage = () => {
         </div>
         <footer className="text-center mt-3">
           <p>
-            Dont have an account? <Link to="/signup">Sign up for free</Link>
+            Dont have an account? <br/><Link to="/signup">Sign up for free</Link>
           </p>
         </footer>
       </form>

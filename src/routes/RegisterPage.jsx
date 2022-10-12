@@ -114,7 +114,8 @@ const RegisterPage = () => {
         </div>
         <footer className="text-center mt-3">
           <p>
-            Already a member? <Link to="/login">Login</Link>
+            Already a member? <br />
+            <Link to="/login">Login</Link>
           </p>
         </footer>
       </form>
