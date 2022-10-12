@@ -9,6 +9,7 @@ import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 import { useState } from 'react';
 import { BsPaperclip } from 'react-icons/bs';
 import { RiMailSendFill } from 'react-icons/ri';
+import { toast } from 'react-toastify';
 import { v4 as uuid } from 'uuid';
 import { useGlobalContext } from '../../context/appContext';
 import { db, storage } from '../../services/firebase';
@@ -19,8 +20,14 @@ const ChatInput = () => {
   const { currentUser, state } = useGlobalContext();
 
   const sendMessage = async (e) => {
-    if (state.chatId === 'null') return;
     if (!text && !image) return;
+    if (state.chatId === 'null') {
+      toast.info('No contact selected', {
+        toastId: 'custom-id-yes',
+        theme: 'dark',
+      });
+      return;
+    }
     e.preventDefault();
     if (image) {
       const storageRef = ref(storage, uuid());
