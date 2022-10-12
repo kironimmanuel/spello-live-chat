@@ -11,11 +11,11 @@ const Message = ({ senderId, text, img, date }) => {
   const timestamp = (duration) => {
     let time = moment().format('X') - duration;
     if (time >= 60 && time < 6_000) {
-      return Math.trunc(time / 100) + 'min. ago';
+      return Math.trunc(time / 100) + 1 + ' min. ago';
     } else if (time >= 6_000) {
-      return Math.trunc(time / 6_000) + 'hr. ago';
+      return Math.trunc(time / 6_000) + ' hr. ago';
     } else if (time >= 144_000) {
-      return Math.trunc(time / 144_000) + 'd ago';
+      return Math.trunc(time / 144_000) + ' d ago';
     } else {
       return 'Just now';
     }
